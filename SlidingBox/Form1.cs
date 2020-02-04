@@ -213,99 +213,136 @@ namespace SlidingBox
 
         private void move(int row, int colum)
         {
+            int num = this.board[row, colum];
             try
             {
                 if(this.board[row-1,colum] == 9)
                 {
-
-                }
+                    this.board[row - 1, colum] = this.board[row, colum];
+                    this.board[row, colum] = 9;
+                    setUpBox(this.board);
+                    checkForWin();
+                    return;
+                } 
             } catch(IndexOutOfRangeException ee)
             {
-
             }
 
             try
             {
                 if (this.board[row + 1, colum ] == 9)
                 {
-
+                    this.board[row + 1, colum] = this.board[row, colum];
+                    this.board[row, colum] = 9;
+                    setUpBox(this.board);
+                    checkForWin();
+                    return;
                 }
             }
             catch (IndexOutOfRangeException ee)
             {
-
             }
 
             try
             {
                 if (this.board[row, colum - 1] == 9)
                 {
-
+                    this.board[row, colum - 1] = this.board[row, colum];
+                    this.board[row, colum] = 9;
+                    setUpBox(this.board);
+                    checkForWin();
+                    return;
                 }
             }
             catch (IndexOutOfRangeException ee)
             {
-
             }
 
             try
             {
                 if (this.board[row, colum + 1] == 9)
                 {
-
+                    this.board[row, colum+1] = this.board[row, colum];
+                    this.board[row, colum] = 9;
+                    setUpBox(this.board);
+                    checkForWin();
+                    return;
                 }
             }
             catch (IndexOutOfRangeException ee)
             {
-
             }
+           
+        }
+        
+        private void checkForWin()
+        {/*
+            if(check())
+            {
+                MessageBox.Show("Won");
+            }
+            */
+        }
+
+        private bool check()
+        {
+            int space = 1;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int q = 0; q < 3; q++)
+                {
+                    if (this.board[i, q] != space++)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
 
         private void BoxSpace00_Click(object sender, EventArgs e)
         {
-            if(this.selectedIndex == null) {
-
-            }
+            move(0, 0);
         }
 
         private void BoxSpace10_Click(object sender, EventArgs e)
         {
-
+            move(0,1);
         }
 
         private void BoxSpace20_Click(object sender, EventArgs e)
         {
-
+            move(0,2);
         }
 
         private void BoxSpace01_Click(object sender, EventArgs e)
         {
-
+            move(1,0);
         }
 
         private void BoxSpace11_Click(object sender, EventArgs e)
         {
-
+            move(1, 1);
         }
 
         private void BoxSpace21_Click(object sender, EventArgs e)
         {
-
+            move(1,2);
         }
 
         private void BoxSpace02_Click(object sender, EventArgs e)
         {
-
+            move(2,0);
         }
 
         private void BoxSpace12_Click(object sender, EventArgs e)
         {
-
+            move(2,1);
         }
 
         private void BoxSpace22_Click(object sender, EventArgs e)
         {
-
+            move(2, 2);
         }
     }
 }
