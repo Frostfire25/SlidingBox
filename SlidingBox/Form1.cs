@@ -12,29 +12,34 @@ namespace SlidingBox
 {
     public partial class SlidingBox : Form
     {
-
+        //3x3 board
         private int[,] board;
-
+        //Number of times the player has moved
         private int score_int;
 
         public SlidingBox()
         {
             InitializeComponent();
+            //Sets up a new game
             newGame();
         }
 
+        //This method updates the score label on each move
         private void updateScore()
         {
             score.Text = "" + score_int++;
         }
 
         private void newGame() {
+            //Sets the players score to 0
             this.score_int = 0;
+            //Updates the players score
             updateScore();
+            //Creates a new board untill it is solvable and not equal to the winning combination.
             do {
                 this.board = generateBox();
             } while (!isSolvable(this.board) && !check());
-
+            //Sets up the box with whatever order was generated above.
             setUpBox(this.board);
 
         }

@@ -357,6 +357,22 @@
         AGUAARgxgABgMAHTYAASb//Z
 </value>
   </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Sliding Box is a game 
+made up with a 3x3
+grid with 8 numbers.
+The goal of the game is
+to have all the numbers
+going from the top left
+ to bottom right 1-8
+and the empty space.
+You can move numbers
+by clicking on that
+ numberif next to the 
+empty space.
+
+</value>
+  </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAArwAAAJYCAIAAAAPDaKAAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL

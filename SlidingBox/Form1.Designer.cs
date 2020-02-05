@@ -41,8 +41,12 @@
             this.boxSpace22 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.scoreLabel = new System.Windows.Forms.Label();
             this.score = new System.Windows.Forms.Label();
+            this.sidingboxHeader = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.backgroundBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxSpace00)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxSpace10)).BeginInit();
@@ -54,6 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.boxSpace12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxSpace22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // backgroundBox
@@ -185,16 +190,16 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // scoreLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Perpetua", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(699, 159);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 84);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "  Score\r\nof Moves\r\n";
+            this.scoreLabel.AutoSize = true;
+            this.scoreLabel.BackColor = System.Drawing.Color.Transparent;
+            this.scoreLabel.Font = new System.Drawing.Font("Perpetua", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreLabel.Location = new System.Drawing.Point(699, 159);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Size = new System.Drawing.Size(141, 84);
+            this.scoreLabel.TabIndex = 12;
+            this.scoreLabel.Text = "  Score\r\nof Moves\r\n";
             // 
             // score
             // 
@@ -207,6 +212,48 @@
             this.score.TabIndex = 13;
             this.score.Text = "label2";
             // 
+            // sidingboxHeader
+            // 
+            this.sidingboxHeader.AutoSize = true;
+            this.sidingboxHeader.BackColor = System.Drawing.Color.Transparent;
+            this.sidingboxHeader.Font = new System.Drawing.Font("Perpetua", 47F);
+            this.sidingboxHeader.Location = new System.Drawing.Point(69, 52);
+            this.sidingboxHeader.Name = "sidingboxHeader";
+            this.sidingboxHeader.Size = new System.Drawing.Size(185, 146);
+            this.sidingboxHeader.TabIndex = 14;
+            this.sidingboxHeader.Text = "Sliding\r\n   Box\r\n";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pictureBox2.Location = new System.Drawing.Point(28, 281);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(165, 255);
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Perpetua", 27F);
+            this.label1.Location = new System.Drawing.Point(33, 236);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(180, 42);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "How to Play";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Perpetua", 12F);
+            this.label2.Location = new System.Drawing.Point(37, 293);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(147, 234);
+            this.label2.TabIndex = 17;
+            this.label2.Text = resources.GetString("label2.Text");
+            // 
             // SlidingBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,8 +261,13 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(899, 620);
-            this.Controls.Add(this.score);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.boxSpace00);
+            this.Controls.Add(this.sidingboxHeader);
+            this.Controls.Add(this.score);
+            this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.boxSpace22);
@@ -226,7 +278,6 @@
             this.Controls.Add(this.boxSpace01);
             this.Controls.Add(this.boxSpace20);
             this.Controls.Add(this.boxSpace10);
-            this.Controls.Add(this.boxSpace00);
             this.Controls.Add(this.backgroundBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "SlidingBox";
@@ -243,6 +294,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.boxSpace12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxSpace22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,8 +314,12 @@
         private System.Windows.Forms.PictureBox boxSpace22;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label scoreLabel;
         private System.Windows.Forms.Label score;
+        private System.Windows.Forms.Label sidingboxHeader;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
