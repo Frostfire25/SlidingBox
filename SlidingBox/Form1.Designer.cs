@@ -39,6 +39,10 @@
             this.boxSpace02 = new System.Windows.Forms.PictureBox();
             this.boxSpace12 = new System.Windows.Forms.PictureBox();
             this.boxSpace22 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.score = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.backgroundBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxSpace00)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxSpace10)).BeginInit();
@@ -49,6 +53,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.boxSpace02)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxSpace12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxSpace22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // backgroundBox
@@ -158,13 +163,61 @@
             this.boxSpace22.TabStop = false;
             this.boxSpace22.Click += new System.EventHandler(this.BoxSpace22_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Perpetua", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(706, 438);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(152, 75);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Click to\r\nExit";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(729, 249);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(80, 86);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Perpetua", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(699, 159);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 84);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "  Score\r\nof Moves\r\n";
+            // 
+            // score
+            // 
+            this.score.AutoSize = true;
+            this.score.BackColor = System.Drawing.Color.White;
+            this.score.Font = new System.Drawing.Font("Perpetua", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.score.Location = new System.Drawing.Point(736, 267);
+            this.score.Name = "score";
+            this.score.Size = new System.Drawing.Size(128, 55);
+            this.score.TabIndex = 13;
+            this.score.Text = "label2";
+            // 
             // SlidingBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(885, 620);
+            this.ClientSize = new System.Drawing.Size(899, 620);
+            this.Controls.Add(this.score);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.boxSpace22);
             this.Controls.Add(this.boxSpace12);
             this.Controls.Add(this.boxSpace02);
@@ -189,7 +242,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.boxSpace02)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxSpace12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxSpace22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -205,6 +260,10 @@
         private System.Windows.Forms.PictureBox boxSpace02;
         private System.Windows.Forms.PictureBox boxSpace12;
         private System.Windows.Forms.PictureBox boxSpace22;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label score;
     }
 }
 

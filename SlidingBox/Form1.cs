@@ -15,16 +15,25 @@ namespace SlidingBox
 
         private int[,] board;
 
+        private int score_int;
+
         public SlidingBox()
         {
             InitializeComponent();
             newGame();
         }
 
+        private void updateScore()
+        {
+            score.Text = "" + score_int++;
+        }
+
         private void newGame() {
+            this.score_int = 0;
+            updateScore();
             do {
                 this.board = generateBox();
-            } while (!isSolvable(this.board));
+            } while (!isSolvable(this.board) && !check());
 
             setUpBox(this.board);
 
@@ -276,12 +285,13 @@ namespace SlidingBox
         }
         
         private void checkForWin()
-        {/*
+        {
+            updateScore();
             if(check())
             {
                 MessageBox.Show("Won");
             }
-            */
+            
         }
 
         private bool check()
@@ -343,6 +353,11 @@ namespace SlidingBox
         private void BoxSpace22_Click(object sender, EventArgs e)
         {
             move(2, 2);
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
