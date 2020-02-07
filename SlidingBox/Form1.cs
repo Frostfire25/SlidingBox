@@ -38,14 +38,16 @@ namespace SlidingBox
             //Creates a new board untill it is solvable and not equal to the winning combination.
             do {
                 this.board = generateBox();
-            } while (!isSolvable(this.board) && !check());
+            } while (!isSolvable(this.board) && check());
             //Sets up the box with whatever order was generated above.
             setUpBox(this.board);
 
         }
 
+        //Sets up the boxes in corrispondence with arguement
         private void setUpBox(int[,] box)
         {
+            //A list with each pictureBox
             List<PictureBox> boxes = new List<PictureBox>();
             boxes.Add(boxSpace00);
             boxes.Add(boxSpace10);
@@ -57,6 +59,7 @@ namespace SlidingBox
             boxes.Add(boxSpace12);
             boxes.Add(boxSpace22);
 
+            //Sets each picture box to the box in the box
             int counter = 0;
             for(int i = 0; i < 3; i++)
             {
@@ -67,19 +70,8 @@ namespace SlidingBox
             }
 
         }
-
         
-        private int getNumberFromImage(Image image)
-        {
-            /*
-            switch(image)
-            {
-                case Properties.Resources.one; return 1;
-            }
-            */
-            return 9;
-        }
-
+        //Returns the image from the number passed
         private Image getImageFromNumber(int number)
         {
             switch(number)
@@ -133,42 +125,33 @@ namespace SlidingBox
                     }
                     
             }
+            //Returns null if a number != to 1-9 was passed
             return null;
         }
 
-        private void showBox(int[,] test_box)
-        {
-            String op = "";
-            for (int i = 0; i < 3; i++)
-            {
-                for (int q = 0; q < 3; q++)
-                {
-                    op += "" + test_box[i, q] + " ";
-                }
-                op += "\n";
-            }
-            MessageBox.Show(op);
-        }
-
+        //Generates a new 3x3 box.
         private int[,] generateBox()
         {
             Random rand = new Random();
+            //2d array that's going to be returned
             int[,] board = new int[3,3];
             for(int i = 0; i < 3; i++)
             {
                 for(int q = 0; q < 3; q++)
                 {
+                    //If the number is already in the array a new number is generated.
                     int num;
                     do
                     {
                         num = rand.Next(1, 10);
-                    } while (isInBox(board, num));//Might be in a constant loop
+                    } while (isInBox(board, num));
                     board[i, q] = num;
                 }
             }
             return board;
         }
 
+        //Checks a 2d array and see's if a number is in the array
         private bool isInBox(int[,] test_box, int n)
         {
             for(int i = 0; i < 3; i++)
@@ -182,19 +165,34 @@ namespace SlidingBox
             return false;
         }
 
+        //Solver algorithm
         private bool isSolvable(int[,] test_box)
         {
+            //Total amount of inversions.
             int inversions = 0;
-
+            //one-diminsional array where every space from the 2d array is added
             int[] onedarray = new int[9];
+            //Space holder for 1-9
+            int space = 0;
+            //Adds a number from the test_box array to onedarry
             for (int i = 0; i < 3; i++)
             {
                 for(int q = 0; q < 3; q++)
                 {
-                    onedarray[i] = test_box[i, q];
+                    onedarray[space++] = test_box[i, q];
                 }
             }
 
+            String op = "";
+            foreach(int n in onedarray)
+            {
+                op += "" + n + " ";
+            }
+            MessageBox.Show(op);
+
+            //Goes through each number in onedarry and if that number is greater than
+            //the rest in that array holder++, than the total amounts of holders for
+            //that number is added to the inversions
             for(int i = 0; i < 9; i++)
             {
                 int holder = 0;
@@ -209,33 +207,35 @@ namespace SlidingBox
                 }
                 inversions += holder;
             }
-
+            //If the inversions is even then the puzzle is solvable
             if (inversions % 2 == 0)
                 return true;
             return false;
         }
 
+        //Closes the form.
         private void SlidingBox_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            Application.Exit(); 
         }
 
-        private void setUpSideBar()
-        {
-
-        }
-
+        //On each move it checks to see if the empty space is next to the box, if it is than it moves to that space.
         private void move(int row, int colum)
         {
-            int num = this.board[row, colum];
             try
             {
+                //If the empty space is to the left
                 if(this.board[row-1,colum] == 9)
                 {
+                    //Set's the empty space to the number
                     this.board[row - 1, colum] = this.board[row, colum];
+                    //Set's the moved space to the empty space
                     this.board[row, colum] = 9;
+                    //Set's up the box and changes the images
                     setUpBox(this.board);
+                    //Checks for wins
                     checkForWin();
+                    //Returns the method
                     return;
                 } 
             } catch(IndexOutOfRangeException ee)
@@ -244,6 +244,7 @@ namespace SlidingBox
 
             try
             {
+                //If the empty space is to the right
                 if (this.board[row + 1, colum ] == 9)
                 {
                     this.board[row + 1, colum] = this.board[row, colum];
@@ -259,6 +260,7 @@ namespace SlidingBox
 
             try
             {
+                //If the empty space is below
                 if (this.board[row, colum - 1] == 9)
                 {
                     this.board[row, colum - 1] = this.board[row, colum];
@@ -274,6 +276,7 @@ namespace SlidingBox
 
             try
             {
+                //If the empty space is above
                 if (this.board[row, colum + 1] == 9)
                 {
                     this.board[row, colum+1] = this.board[row, colum];
@@ -289,8 +292,10 @@ namespace SlidingBox
            
         }
         
+        //Checks for a win
         private void checkForWin()
         {
+            //Updates the score
             updateScore();
             if(check())
             {
@@ -299,21 +304,47 @@ namespace SlidingBox
             
         }
 
+        //If the board is equal to the winning board than check() returns true
+
+        // 1 2 3
+        // 4 5 6
+        // 7 8 9
         private bool check()
         {
+            //Space holder
             int space = 1;
+
+            int[] onedarray = new int[9];
+            int s1 = 0;
+            //Adds a number from the test_box array to onedarry
             for (int i = 0; i < 3; i++)
             {
                 for (int q = 0; q < 3; q++)
                 {
-                    if (this.board[i, q] != space++)
-                    {
-                        return false;
-                    }
+                    onedarray[s1++] = board[i, q];
                 }
             }
+
+            //Correct winning array
+            int[] correct_array = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            //Goes through each space in onedarry, and if it is not equal to the correct space
+            //in correct_array the mothod returns false
+            for(int i = 0; i < 9; i++)
+            {
+                if (onedarray[i] != correct_array[i])
+                    return false;
+            }
+
             return true;
         }
+
+        /*
+         * Picture Box Listeners
+         * 
+         * In each method the move method is called for the space in the board array.
+         * 
+         */
 
         private void BoxSpace00_Click(object sender, EventArgs e)
         {
@@ -359,6 +390,8 @@ namespace SlidingBox
         {
             move(2, 2);
         }
+
+        //When the exit button is clicked, the application is closed
 
         private void Button1_Click(object sender, EventArgs e)
         {
