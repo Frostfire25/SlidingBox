@@ -47,6 +47,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.newGameButton = new System.Windows.Forms.Button();
+            this.wonLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.backgroundBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxSpace00)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxSpace10)).BeginInit();
@@ -254,6 +256,28 @@
             this.label2.TabIndex = 17;
             this.label2.Text = resources.GetString("label2.Text");
             // 
+            // newGameButton
+            // 
+            this.newGameButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("newGameButton.BackgroundImage")));
+            this.newGameButton.Font = new System.Drawing.Font("Perpetua", 21.75F);
+            this.newGameButton.Location = new System.Drawing.Point(379, 52);
+            this.newGameButton.Name = "newGameButton";
+            this.newGameButton.Size = new System.Drawing.Size(186, 39);
+            this.newGameButton.TabIndex = 18;
+            this.newGameButton.Text = "New Game";
+            this.newGameButton.UseVisualStyleBackColor = true;
+            // 
+            // wonLabel
+            // 
+            this.wonLabel.AutoSize = true;
+            this.wonLabel.BackColor = System.Drawing.Color.Transparent;
+            this.wonLabel.Font = new System.Drawing.Font("Perpetua", 27.75F);
+            this.wonLabel.Location = new System.Drawing.Point(392, 7);
+            this.wonLabel.Name = "wonLabel";
+            this.wonLabel.Size = new System.Drawing.Size(160, 42);
+            this.wonLabel.TabIndex = 19;
+            this.wonLabel.Text = "You Won!";
+            // 
             // SlidingBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,6 +285,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(899, 620);
+            this.Controls.Add(this.wonLabel);
+            this.Controls.Add(this.newGameButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
@@ -320,6 +346,8 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button newGameButton;
+        private System.Windows.Forms.Label wonLabel;
     }
 }
 

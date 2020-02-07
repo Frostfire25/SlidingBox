@@ -30,9 +30,26 @@ namespace SlidingBox
             score.Text = "" + score_int++;
         }
 
+        private void changeWinVisibility()
+        {
+            if(!newGameButton.Visible)
+            {
+                newGameButton.Visible = false;
+                wonLabel.Visible = false;
+            } else
+            {
+                newGameButton.Visible = true;
+                wonLabel.Visible = true;
+            }
+        }
+
         private void newGame() {
+            //Hides the buttons
+            changeWinVisibility();
             //Sets the players score to 0
             this.score_int = 0;
+            //Sets the score to 0
+            score.Text = ""+0;
             //Updates the players score
             updateScore();
             //Creates a new board untill it is solvable and not equal to the winning combination.
@@ -183,13 +200,6 @@ namespace SlidingBox
                 }
             }
 
-            String op = "";
-            foreach(int n in onedarray)
-            {
-                op += "" + n + " ";
-            }
-            MessageBox.Show(op);
-
             //Goes through each number in onedarry and if that number is greater than
             //the rest in that array holder++, than the total amounts of holders for
             //that number is added to the inversions
@@ -299,7 +309,7 @@ namespace SlidingBox
             updateScore();
             if(check())
             {
-                MessageBox.Show("Won");
+                changeWinVisibility(); 
             }
             
         }
